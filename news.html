@@ -1,0 +1,21 @@
+---
+layout: default
+title: News
+show_title: true
+permalink: /news/
+---
+
+{% assign sorted = site.news | sort: "date" | reverse %}
+{% assign by_year = sorted | group_by_exp: "n", "n.date | date: '%Y'" %}
+
+{% for year in by_year %}
+  <div class="year-group">
+    <h2 class="year-group__heading">{{ year.name }}</h2>
+    {% for item in year.items %}
+      <article class="news-mini">
+        <span class="news-mini__date">{{ item.date | date: "%b %d, %Y" }}</span>
+        <div class="news-mini__body">{{ item.content | markdownify }}</div>
+      </article>
+    {% endfor %}
+  </div>
+{% endfor %}

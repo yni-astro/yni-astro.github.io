@@ -1,0 +1,30 @@
+---
+layout: default
+title: Talks &amp; Conferences
+show_title: true
+permalink: /talks/
+---
+
+{% assign sorted = site.talks | sort: "date" | reverse %}
+{% assign by_year = sorted | group_by_exp: "t", "t.date | date: '%Y'" %}
+
+{% for year in by_year %}
+  <div class="year-group">
+    <h2 class="year-group__heading">{{ year.name }}</h2>
+    {% for talk in year.items %}
+      <article class="timeline-item">
+        <div class="timeline-item__date">{{ talk.date | date: "%b %Y" }}</div>
+        <div>
+          <h3 class="timeline-item__title">
+            {% if talk.kind %}<span class="timeline-item__type">{{ talk.kind }}</span>{% endif %}
+            {{ talk.title }}
+          </h3>
+          <div class="timeline-item__meta">
+            {{ talk.event }}{% if talk.location %} · {{ talk.location }}{% endif %}
+            {% if talk.host %}<br><span style="color: var(--text-faint);">Host: {{ talk.host }}</span>{% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endfor %}

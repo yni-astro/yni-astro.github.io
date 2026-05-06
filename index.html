@@ -1,0 +1,70 @@
+---
+layout: default
+title: Home
+show_title: false
+---
+
+<section class="hero">
+  <img class="hero__figure" src="{{ '/assets/images/hero.png' | relative_url }}" alt="Featured science figure">
+  <h1 class="hero__name">{{ site.author.name }}</h1>
+  <p class="hero__tag">
+    {{ site.author.position }} ·
+    <a href="https://astro.tsinghua.edu.cn/" target="_blank" rel="noopener">{{ site.author.affiliation }}</a>
+  </p>
+</section>
+
+<section class="hero__intro">
+  <p>
+    I am a PhD candidate in astronomy at Tsinghua University, advised by
+    <a href="https://www.cita.utoronto.ca/~xbai/" target="_blank" rel="noopener">Prof. Xuening Bai</a>.
+    My research uses <em class="accent-italic">(radiation-)hydrodynamic simulations</em>
+    to study how stars and planets are born — from the giant molecular clouds that birth
+    star clusters, all the way down to protoplanetary disks where gas giants emerge.
+  </p>
+  <p>
+    Currently, I focus on the early-stage evolution of self-gravitating protoplanetary
+    disks and on the life cycle of giant molecular clouds in galaxy-scale simulations.
+    I am also a developer of the M1-radiative transfer module in the GIZMO code.
+  </p>
+
+  <div class="btn-row">
+    <a class="btn btn--primary" href="{{ '/assets/pdf/CV_Yang.pdf' | relative_url }}" target="_blank">
+      <i class="fa-solid fa-file-arrow-down"></i> Download CV
+    </a>
+    <a class="btn" href="{{ '/publications/' | relative_url }}">
+      <i class="fa-solid fa-book"></i> Publications
+    </a>
+    <a class="btn" href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">
+      <i class="ai ai-orcid"></i> ORCID
+    </a>
+  </div>
+</section>
+
+<!-- Recent news preview -->
+{% assign recent_news = site.news | sort: 'date' | reverse | slice: 0, 4 %}
+{% if recent_news.size > 0 %}
+<section style="margin-top: 56px;">
+  <h2>Recent news</h2>
+  {% for item in recent_news %}
+    <article class="news-mini">
+      <span class="news-mini__date">{{ item.date | date: "%b %Y" }}</span>
+      <div class="news-mini__body">{{ item.content | markdownify }}</div>
+    </article>
+  {% endfor %}
+  <p style="margin-top: 14px;"><a href="{{ '/news/' | relative_url }}">All news →</a></p>
+</section>
+{% endif %}
+
+<!-- Featured publications (first-author papers, latest 2) -->
+{% assign first_author = site.publications | where: "is_first_author", true | sort: "date" | reverse %}
+{% if first_author.size > 0 %}
+<section style="margin-top: 56px;">
+  <h2>Selected publications</h2>
+  <div class="pub-list">
+    {% for pub in first_author limit: 2 %}
+      {% include pub-card.html pub=pub %}
+    {% endfor %}
+  </div>
+  <p style="margin-top: 18px;"><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
+</section>
+{% endif %}

@@ -1,0 +1,32 @@
+<!--
+  Sidebar — dark, fixed, persistent across all pages.
+  On screens < 900px, this collapses to a top bar (see main.css).
+-->
+<aside class="sidebar">
+  <a class="sidebar__avatar-link" href="{{ '/' | relative_url }}" aria-label="Home">
+    <img class="sidebar__avatar" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="{{ site.author.name }}">
+  </a>
+
+  <div class="sidebar__name">
+    <a href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+  </div>
+  <div class="sidebar__role">{{ site.author.position }}</div>
+
+  {%- assign current = page.url -%}
+  <nav class="sidebar__nav" aria-label="Main">
+    <a href="{{ '/' | relative_url }}"             class="sidebar__navlink {% if current == '/' %}is-active{% endif %}"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="{{ '/about/' | relative_url }}"        class="sidebar__navlink {% if current contains '/about' %}is-active{% endif %}"><i class="fa-solid fa-user"></i><span>About</span></a>
+    <a href="{{ '/publications/' | relative_url }}" class="sidebar__navlink {% if current contains '/publications' %}is-active{% endif %}"><i class="fa-solid fa-book"></i><span>Publications</span></a>
+    <a href="{{ '/talks/' | relative_url }}"        class="sidebar__navlink {% if current contains '/talks' %}is-active{% endif %}"><i class="fa-solid fa-microphone"></i><span>Talks</span></a>
+    <a href="{{ '/news/' | relative_url }}"         class="sidebar__navlink {% if current contains '/news' %}is-active{% endif %}"><i class="fa-solid fa-bullhorn"></i><span>News</span></a>
+    <a href="{{ '/cv/' | relative_url }}"           class="sidebar__navlink {% if current contains '/cv' %}is-active{% endif %}"><i class="fa-solid fa-file-lines"></i><span>CV</span></a>
+    <a href="{{ '/contact/' | relative_url }}"      class="sidebar__navlink {% if current contains '/contact' %}is-active{% endif %}"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+  </nav>
+
+  <div class="sidebar__socials">
+    <a href="mailto:{{ site.author.email }}" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID"><i class="ai ai-orcid"></i></a>
+    <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22{{ site.author.ads | url_encode }}%22&sort=date%20desc" target="_blank" rel="noopener" title="ADS" aria-label="ADS"><i class="ai ai-ads"></i></a>
+    <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+  </div>
+</aside>

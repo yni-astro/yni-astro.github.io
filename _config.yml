@@ -1,0 +1,50 @@
+# Site settings
+title: "Yang Ni"
+tagline: "PhD Candidate · Tsinghua University · Astronomy"
+description: >-
+  Yang Ni — PhD Candidate in Astronomy at Tsinghua University.
+  Research on protoplanetary disks, planet formation, giant molecular clouds,
+  and star formation.
+url: ""        # leave empty until you go public
+baseurl: ""    # leave empty for root deployment
+
+# Author / personal info — referenced from layouts
+author:
+  name: Yang Ni
+  chinese_name: 倪杨           # optional, change or remove
+  email: ny22@mails.tsinghua.edu.cn
+  position: PhD Candidate in Astronomy
+  affiliation: Tsinghua University
+  advisor: Prof. Xuening Bai
+  orcid: "0000-0003-0794-1949"
+  github: yni-astro
+  ads: "Ni,+Y"   # used to build an ADS search link
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+sass:
+  style: compressed
+
+# Collections — adding a new entry is just a new markdown file in these folders
+collections:
+  publications:
+    output: false
+  talks:
+    output: false
+  news:
+    output: false
+
+# Excluded from the built site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - PUBLISH.md
+  - CV_Yang.pdf       # original at repo root; canonical copy lives in assets/pdf/
+  - profilephoto.jpg  # original at repo root; canonical copy lives in assets/images/
+  - herosci.png       # original at repo root; canonical copy lives in assets/images/
+  - .DS_Store
+  - .gitignore

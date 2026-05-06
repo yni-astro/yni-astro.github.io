@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.author.position }}{% endif %}</title>
+
+<meta name="description" content="{{ site.description }}">
+<meta name="author" content="{{ site.author.name }}">
+
+<link rel="icon" type="image/png" href="{{ '/assets/images/profile.jpg' | relative_url }}">
+
+<!-- Fonts: Inter for UI/body, Newsreader for italic accents in display -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 6 (free) for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Academicons for ORCID, Google Scholar, ADS, etc. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
