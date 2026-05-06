@@ -25,7 +25,11 @@ permalink: /contact/
   </li>
   <li>
     <i class="ai ai-ads"></i>
-    <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22{{ site.author.ads | url_encode }}%22&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
+    {% if site.author.ads_library and site.author.ads_library != '' %}
+      <a href="{{ site.author.ads_library }}" target="_blank" rel="noopener">NASA ADS library</a>
+    {% else %}
+      <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22{{ site.author.ads | url_encode }}%22&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
+    {% endif %}
   </li>
   <li>
     <i class="fa-brands fa-github"></i>

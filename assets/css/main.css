@@ -5,18 +5,45 @@
    =========================================================================== */
 
 :root {
-  --bg:           #0e0f12;          /* main background */
-  --bg-sidebar:   #15171b;          /* sidebar bg */
-  --bg-card:      #1a1c20;          /* publication / news card bg */
-  --bg-card-hov:  #20232a;          /* card hover */
-  --border:       #2a2d34;          /* subtle borders */
-  --text:         #d8dade;          /* primary text */
-  --text-dim:     #9ea4ad;          /* secondary text */
-  --text-faint:   #6c727b;          /* tertiary / metadata */
-  --accent:       #8ab4ff;          /* link / highlight (soft sky-blue) */
+  /* === Active palette (light academic) ===
+     Swap with one of the presets below and save — every page rethemes. */
+  --bg:            #fafaf7;         /* main background */
+  --bg-sidebar:    #ffffff;         /* sidebar bg */
+  --bg-card:       #ffffff;         /* publication / news card bg */
+  --bg-card-hov:   #f4f4f0;         /* card hover */
+  --bg-code:       #eef0ec;         /* inline code & pre blocks */
+  --bg-thumb:      #f4f4f0;         /* publication thumbnail placeholder */
+  --border:        #e2e2db;         /* subtle borders */
+  --text:          #1a1a1c;         /* primary text */
+  --text-dim:      #555a62;         /* secondary text */
+  --text-faint:    #8a8f97;         /* tertiary / metadata */
+  --accent:        #1f5fa5;         /* link / highlight (academic blue) */
+  --accent-hov:    #2c79c8;
+  --accent-warm:   #a96b1d;         /* second accent (rust, used sparingly) */
+  --rule:          #e2e2db;
+  --tint-accent:   rgba(31, 95, 165, 0.08);   /* faint accent wash for active states */
+  --tint-warm:     rgba(169, 107, 29, 0.12);  /* faint warm wash for badges */
+  --shadow-soft:   0 4px 16px rgba(0,0,0,0.06);
+
+  /* === Dark theme preset (uncomment to switch) ===
+  --bg:           #0e0f12;
+  --bg-sidebar:   #15171b;
+  --bg-card:      #1a1c20;
+  --bg-card-hov:  #20232a;
+  --bg-code:      #1c1f24;
+  --bg-thumb:     #0a0b0d;
+  --border:       #2a2d34;
+  --text:         #d8dade;
+  --text-dim:     #9ea4ad;
+  --text-faint:   #6c727b;
+  --accent:       #8ab4ff;
   --accent-hov:   #b0c9ff;
-  --accent-warm:  #e2b873;          /* second accent (warm amber, used sparingly) */
+  --accent-warm:  #e2b873;
   --rule:         #2a2d34;
+  --tint-accent:  rgba(138, 180, 255, 0.10);
+  --tint-warm:    rgba(226, 184, 115, 0.12);
+  --shadow-soft:  0 6px 22px rgba(0,0,0,0.35);
+  */
 
   --sidebar-w:    220px;
   --content-pad:  72px;             /* horizontal padding inside main content */
@@ -55,14 +82,14 @@ p { margin: 0 0 1em; }
 
 code, pre {
   font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  background: #1c1f24;
+  background: var(--bg-code);
   border-radius: 4px;
   font-size: 0.92em;
 }
 code { padding: 1px 5px; }
 pre  { padding: .9em 1em; overflow-x: auto; }
 
-::selection { background: rgba(138, 180, 255, 0.25); }
+::selection { background: var(--tint-accent); }
 
 /* =========================================================================
    Sidebar
@@ -87,7 +114,7 @@ pre  { padding: .9em 1em; overflow-x: auto; }
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--border);
-  box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+  box-shadow: var(--shadow-soft);
 }
 
 .sidebar__name {
@@ -131,12 +158,12 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 .sidebar__navlink i { width: 16px; text-align: center; font-size: 0.95rem; }
 .sidebar__navlink:hover {
   color: var(--text);
-  background: rgba(255,255,255,0.03);
+  background: var(--bg-card-hov);
   text-decoration: none;
 }
 .sidebar__navlink.is-active {
   color: var(--accent);
-  background: rgba(138, 180, 255, 0.07);
+  background: var(--tint-accent);
 }
 
 .sidebar__socials {
@@ -196,10 +223,22 @@ pre  { padding: .9em 1em; overflow-x: auto; }
   margin: -16px 0 42px;
   text-align: center;
 }
+/*  HERO FIGURE — three knobs to tune size & cropping:
+    1) aspect-ratio  — overall shape; e.g. "16 / 6" (cinematic), "16 / 9" (taller),
+                       "21 / 9" (very wide); or remove and use max-height instead.
+    2) object-fit    — cover  = zoom-crop to fill (default; may crop edges)
+                       contain = letterbox the whole figure (no cropping)
+                       none   = display at native size (may overflow)
+    3) object-position — which part survives a crop. e.g. "center", "center top",
+                       "25% 75%". Default "center" keeps the middle.
+    For a fixed pixel height instead of an aspect ratio, delete `aspect-ratio`
+    and use `max-height: 380px;`.
+*/
 .hero__figure {
   width: 100%;
-  max-height: 380px;
+  aspect-ratio: 16 / 7;
   object-fit: cover;
+  object-position: center;
   border-radius: 6px;
   border: 1px solid var(--border);
 }
@@ -272,7 +311,7 @@ pre  { padding: .9em 1em; overflow-x: auto; }
   border-color: #353841;
 }
 .pub__thumb {
-  background: #0a0b0d;
+  background: var(--bg-thumb);
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -283,7 +322,7 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 .pub__thumb--placeholder {
   color: var(--text-faint);
   font-size: 0.82rem;
-  background: linear-gradient(135deg, #1a1c20 0%, #14161a 100%);
+  background: var(--bg-thumb);
 }
 
 .pub__title {
@@ -327,13 +366,79 @@ pre  { padding: .9em 1em; overflow-x: auto; }
   font-size: 0.7rem;
   padding: 1px 7px;
   border-radius: 3px;
-  background: rgba(226, 184, 115, 0.12);
+  background: var(--tint-warm);
   color: var(--accent-warm);
   margin-left: 8px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-weight: 600;
   vertical-align: middle;
+}
+
+/* =========================================================================
+   Research highlights — large figures + abstract per featured paper
+   ========================================================================= */
+.highlight {
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.highlight:last-child { border-bottom: none; padding-bottom: 0; }
+
+.highlight__figure {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;          /* `contain` so figures aren't cropped — change to `cover` for crop-fit */
+  background: var(--bg-thumb);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+}
+.highlight__title {
+  font-size: 1.45rem;
+  margin: 26px 0 6px;
+  letter-spacing: -0.01em;
+}
+.highlight__title a { color: var(--text); }
+.highlight__title a:hover { color: var(--accent); text-decoration: none; }
+
+.highlight__authors {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  margin: 0 0 4px;
+}
+.highlight__authors strong { color: var(--accent-warm); font-weight: 600; }
+
+.highlight__venue {
+  font-size: 0.88rem;
+  color: var(--text-faint);
+  margin: 0 0 16px;
+}
+.highlight__venue em { font-style: italic; }
+
+.highlight__abstract {
+  font-size: 1.0rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.highlight__abstract p:first-child { margin-top: 0; }
+.highlight__abstract p:last-child { margin-bottom: 0; }
+
+.highlight__links {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin-top: 16px;
+  font-size: 0.88rem;
+}
+.highlight__links a {
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 5px;
+  color: var(--text-dim);
+}
+.highlight__links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* =========================================================================
@@ -378,7 +483,7 @@ pre  { padding: .9em 1em; overflow-x: auto; }
   display: inline-block;
   padding: 1px 7px;
   border-radius: 3px;
-  background: rgba(138, 180, 255, 0.10);
+  background: var(--tint-accent);
   color: var(--accent);
   font-size: 0.72rem;
   font-weight: 600;
