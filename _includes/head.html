@@ -2,7 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.author.position }}{% endif %}</title>
+<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — Astronomy, {{ site.author.affiliation }}{% endif %}</title>
 
 <meta name="description" content="{{ site.description }}">
 <meta name="author" content="{{ site.author.name }}">
@@ -12,12 +12,12 @@
 <!-- Social preview (Open Graph + Twitter) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ site.author.name }} — {{ site.author.position }}, {{ site.author.affiliation }}">
+<meta property="og:title" content="{{ site.author.name }} — Astronomy, {{ site.author.affiliation }}">
 <meta property="og:description" content="{{ site.description }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:image" content="{{ '/assets/images/profile.jpg' | absolute_url }}">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{{ site.author.name }} — {{ site.author.position }}, {{ site.author.affiliation }}">
+<meta name="twitter:title" content="{{ site.author.name }} — Astronomy, {{ site.author.affiliation }}">
 <meta name="twitter:description" content="{{ site.description }}">
 <meta name="twitter:image" content="{{ '/assets/images/profile.jpg' | absolute_url }}">
 
