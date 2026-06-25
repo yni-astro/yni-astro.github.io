@@ -1,6 +1,6 @@
 ---
 title: "The THESAN-ZOOM project: Star formation efficiency from giant molecular clouds to galactic scale in high-redshift starbursts"
-authors: "Z. Wang, et al. (incl. **Y. Ni**)"
+authors: "Z. Wang, X. Shen, M. Vogelsberger, H. Li, R. Kannan, E. Puchwein, A. Smith, J. Borrow, E. Garaldi, L. Keating, O. Zier, W. McClymont, S. Tacchella, **Y. Ni**, L. Hernquist"
 journal: "MNRAS"
 volume: "544"
 pages: "2675"

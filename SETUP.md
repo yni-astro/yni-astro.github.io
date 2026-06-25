@@ -41,7 +41,7 @@ git add .
 git status
 
 # Initial commit
-git commit -m "Initial homepage: Jekyll multi-page dark theme"
+git commit -m "Initial homepage"
 
 # Connect to your private repo and push
 git remote add origin git@github.com:yni-astro/personalwebsite-source.git
@@ -96,8 +96,9 @@ Open <http://127.0.0.1:4000> in your browser. The site auto-reloads as you edit.
 
 ## Going forward
 
-- Adding a paper, talk, or news item: see `README.md`.
+- Adding a paper (or restoring the hidden Talks/News): see `README.md`.
 - Going public at `https://yni-astro.github.io`: see `PUBLISH.md`.
-- The original `CV_Yang.pdf`, `profilephoto.jpg`, `herosci.png` at the repo root
-  are originals you dropped in. The site uses copies in `assets/`. Delete the
-  root copies if you want — they are excluded from the build.
+- `profilephoto.jpg` at the repo root is kept as the full-resolution master of
+  your avatar (the site serves an optimized copy at `assets/images/profile.jpg`).
+  The earlier root duplicates of the CV PDF and hero image were removed; their
+  full-res copies live under `assets/`.

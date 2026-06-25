@@ -22,7 +22,7 @@ author:
   # Paste your curated ADS library URL here once you have one. To get it:
   # 1. open your library on ADS, 2. click "Share Library", 3. copy the URL.
   # Leave empty ("") to fall back to an ADS author search.
-  ads_library: ""
+  ads_library: "https://ui.adsabs.harvard.edu/public-libraries/frwLTIQUT2qIEgSxaHydnQ"
 
 # Build settings
 markdown: kramdown
@@ -47,8 +47,7 @@ exclude:
   - node_modules
   - README.md
   - PUBLISH.md
-  - CV_Yang.pdf       # original at repo root; canonical copy lives in assets/pdf/
-  - profilephoto.jpg  # original at repo root; canonical copy lives in assets/images/
-  - herosci.png       # original at repo root; canonical copy lives in assets/images/
+  - SETUP.md
+  - profilephoto.jpg  # full-resolution master; build uses the optimized assets/images/profile.jpg
   - .DS_Store
   - .gitignore

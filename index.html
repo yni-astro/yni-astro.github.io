@@ -4,67 +4,163 @@ title: Home
 show_title: false
 ---
 
-<section class="hero">
-  <img class="hero__figure" src="{{ '/assets/images/hero.png' | relative_url }}" alt="Featured science figure">
-  <h1 class="hero__name">{{ site.author.name }}</h1>
-  <p class="hero__tag">
+<!-- ============================ ABOUT (landing) ============================ -->
+<section id="about">
+  <h1 class="page-name">{{ site.author.name }}</h1>
+  <p class="page-role">
     {{ site.author.position }} ·
     <a href="https://astro.tsinghua.edu.cn/" target="_blank" rel="noopener">{{ site.author.affiliation }}</a>
   </p>
-</section>
 
-<section class="hero__intro">
   <p>
     I am a PhD candidate in astronomy at Tsinghua University, advised by
-    <a href="https://www.cita.utoronto.ca/~xbai/" target="_blank" rel="noopener">Prof. Xuening Bai</a>.
-    My research uses <em class="accent-italic">(radiation-)hydrodynamic simulations</em>
-    to study how stars and planets are born — from the giant molecular clouds that birth
-    star clusters, all the way down to protoplanetary disks where gas giants emerge.
+    <a href="http://i.astro.tsinghua.edu.cn/~xbai/" target="_blank" rel="noopener">Prof. Xuening Bai</a>
+    (expected to defend in 2027). My research uses
+    <em class="accent-italic">(radiation-)hydrodynamic simulations</em> to study how stars
+    and planets are born — from the giant molecular clouds that birth star clusters down to
+    the protoplanetary disks where gas giants emerge.
   </p>
   <p>
-    Currently, I focus on the early-stage evolution of self-gravitating protoplanetary
-    disks and on the life cycle of giant molecular clouds in galaxy-scale simulations.
-    I am also a developer of the M1-radiative transfer module in the GIZMO code.
+    Currently I focus on the early-stage evolution of self-gravitating protoplanetary disks
+    and on the life cycle of giant molecular clouds in galaxy-scale simulations. I work
+    primarily with the
+    <a href="http://www.tapir.caltech.edu/~phopkins/Site/GIZMO.html" target="_blank" rel="noopener">GIZMO</a>
+    code and am a developer of its M1 radiative-transfer module. Before Tsinghua I received
+    my B.S. in Astronomy from Nanjing University (Magna Cum Laude, 2022), where I worked with
+    Prof. Bin Luo on high-energy observations.
   </p>
 
   <div class="btn-row">
     <a class="btn btn--primary" href="{{ '/assets/pdf/CV_Yang.pdf' | relative_url }}" target="_blank">
       <i class="fa-solid fa-file-arrow-down"></i> Download CV
     </a>
-    <a class="btn" href="{{ '/publications/' | relative_url }}">
+    <a class="btn" href="#publications">
       <i class="fa-solid fa-book"></i> Publications
     </a>
     <a class="btn" href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">
       <i class="ai ai-orcid"></i> ORCID
     </a>
   </div>
+
+  <h3 class="subhead">Research interests</h3>
+  <ul class="interests-list">
+    <li><strong>Protoplanetary disks &amp; planet formation:</strong> early-stage evolution of self-gravitating disks; direct formation of gas giants via disk fragmentation in 3D radiation hydrodynamics</li>
+    <li><strong>Giant molecular clouds &amp; star formation:</strong> the life cycle of GMCs in Milky-Way-mass galaxies; the role of stellar feedback; how galactic-scale physics regulates cloud-scale star-formation efficiency</li>
+    <li><strong>Numerical methods:</strong> radiation hydrodynamics; M1 closure schemes; large-scale parallel simulations on HPC systems</li>
+  </ul>
 </section>
 
-<!-- Recent news preview -->
-{% assign recent_news = site.news | sort: 'date' | reverse | slice: 0, 4 %}
-{% if recent_news.size > 0 %}
-<section style="margin-top: 56px;">
-  <h2>Recent news</h2>
-  {% for item in recent_news %}
-    <article class="news-mini">
-      <span class="news-mini__date">{{ item.date | date: "%b %Y" }}</span>
-      <div class="news-mini__body">{{ item.content | markdownify }}</div>
+<!-- ============================ RESEARCH ============================ -->
+<section id="research" class="page-section">
+  <h2 class="section-title">Research</h2>
+  <p class="section-lede">
+    A curated set of in-depth summaries of selected work. For the full list of papers
+    see <a href="#publications">Publications</a> below.
+  </p>
+
+  {% assign highlights = site.publications | where: 'is_highlight', true | sort: 'date' | reverse %}
+
+  {% if highlights.size == 0 %}
+    <p style="color: var(--text-faint);">
+      No highlights yet — add <code>is_highlight: true</code> to a publication's
+      front matter and write a longer abstract in its markdown body to feature it here.
+    </p>
+  {% endif %}
+
+  {% for pub in highlights %}
+    <article class="highlight">
+      {% assign img = pub.highlight_image | default: pub.thumbnail %}
+      {% if img %}
+        <img class="highlight__figure" src="{{ img | relative_url }}" alt="">
+      {% endif %}
+
+      <h3 class="highlight__title">
+        {% if pub.ads_link %}
+          <a href="{{ pub.ads_link }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+        {% elsif pub.arxiv_link %}
+          <a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+        {% else %}
+          {{ pub.title }}
+        {% endif %}
+      </h3>
+      <p class="highlight__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      <p class="highlight__venue">
+        <em>{{ pub.journal }}</em>{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}{% if pub.year %} ({{ pub.year }}){% endif %}
+      </p>
+
+      <div class="highlight__abstract">
+        {% if pub.content and pub.content != '' %}
+          {{ pub.content | markdownify }}
+        {% else %}
+          <p>{{ pub.excerpt }}</p>
+        {% endif %}
+      </div>
+
+      <div class="highlight__links">
+        {% if pub.ads_link   %}<a href="{{ pub.ads_link }}"   target="_blank" rel="noopener">ADS</a>{% endif %}
+        {% if pub.arxiv_link %}<a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">arXiv</a>{% endif %}
+        {% if pub.doi_link   %}<a href="{{ pub.doi_link }}"   target="_blank" rel="noopener">Journal</a>{% endif %}
+        {% if pub.code_link  %}<a href="{{ pub.code_link }}"  target="_blank" rel="noopener">Code</a>{% endif %}
+      </div>
     </article>
   {% endfor %}
-  <p style="margin-top: 14px;"><a href="{{ '/news/' | relative_url }}">All news →</a></p>
 </section>
-{% endif %}
 
-<!-- Featured publications (first-author papers, latest 2) -->
-{% assign first_author = site.publications | where: "is_first_author", true | sort: "date" | reverse %}
-{% if first_author.size > 0 %}
-<section style="margin-top: 56px;">
-  <h2>Selected publications</h2>
-  <div class="pub-list">
-    {% for pub in first_author limit: 2 %}
-      {% include pub-card.html pub=pub %}
-    {% endfor %}
-  </div>
-  <p style="margin-top: 18px;"><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
+<!-- ============================ PUBLICATIONS ============================ -->
+<section id="publications" class="page-section">
+  <h2 class="section-title">Publications</h2>
+  <p class="section-lede">
+    First-author papers are listed first; each group is newest-first. Full bibliography on
+    {% if site.author.ads_library and site.author.ads_library != '' %}
+      <a href="{{ site.author.ads_library }}" target="_blank" rel="noopener">NASA ADS</a>
+    {% else %}
+      <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22{{ site.author.ads | url_encode }}%22&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
+    {% endif %}
+    and <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">ORCID</a>.
+  </p>
+
+  {% assign first_author = site.publications | where: "is_first_author", true | sort: "date" | reverse %}
+  {% assign coauthored   = site.publications | where_exp: "p", "p.is_first_author != true" | sort: "date" | reverse %}
+
+  {% if first_author.size > 0 %}
+    <h3 class="pub-group-title">First-author</h3>
+    <ol class="pub-clean">
+      {% for pub in first_author %}{% include pub-line.html pub=pub %}{% endfor %}
+    </ol>
+  {% endif %}
+
+  {% if coauthored.size > 0 %}
+    <h3 class="pub-group-title">Co-authored</h3>
+    <ol class="pub-clean">
+      {% for pub in coauthored %}{% include pub-line.html pub=pub %}{% endfor %}
+    </ol>
+  {% endif %}
 </section>
-{% endif %}
+
+<!-- ============================ CONTACT ============================ -->
+<section id="contact" class="page-section">
+  <h2 class="section-title">Contact</h2>
+  <p style="color: var(--text-dim);">
+    Happy to chat about protoplanetary disks, GMCs, radiation hydrodynamics, or
+    collaboration ideas. Email is the fastest way to reach me.
+  </p>
+
+  <ul class="contact-list" style="margin-top: 24px;">
+    <li>
+      <i class="fa-solid fa-envelope"></i>
+      <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+    </li>
+    <li>
+      <i class="fa-solid fa-building-columns"></i>
+      Department of Astronomy, Tsinghua University, Beijing, China
+    </li>
+    <li>
+      <i class="fa-brands fa-orcid"></i>
+      <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">{{ site.author.orcid }}</a>
+    </li>
+    <li>
+      <i class="fa-brands fa-github"></i>
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">github.com/{{ site.author.github }}</a>
+    </li>
+  </ul>
+</section>

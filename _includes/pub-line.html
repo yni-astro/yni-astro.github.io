@@ -1,0 +1,13 @@
+<!--
+  Clean one-line publication entry (Minghao-Guo style):
+  Authors, Title, Venue. [ADS · arXiv · DOI]
+  Pass `pub` (a Jekyll publication object). Bold your own name in the `authors` field with **…**.
+-->
+{% assign pub = include.pub %}
+{% if pub.ads_link %}{% assign primary = pub.ads_link %}{% elsif pub.arxiv_link %}{% assign primary = pub.arxiv_link %}{% else %}{% assign primary = pub.doi_link %}{% endif %}
+<li class="pub-line">
+  <span class="pub-line__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines }}</span>,
+  {% if primary %}<a class="pub-line__title" href="{{ primary }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}<span class="pub-line__title">{{ pub.title }}</span>{% endif %},
+  <span class="pub-line__venue"><em>{{ pub.journal }}</em>{% if pub.volume %} {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}{% if pub.year %} ({{ pub.year }}){% endif %}.</span>
+  <span class="pub-line__links">{% if pub.ads_link %}<a href="{{ pub.ads_link }}" target="_blank" rel="noopener">ADS</a>{% endif %}{% if pub.arxiv_link %}{% if pub.ads_link %} · {% endif %}<a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">arXiv</a>{% endif %}{% if pub.doi_link %} · <a href="{{ pub.doi_link }}" target="_blank" rel="noopener">DOI</a>{% endif %}</span>
+</li>

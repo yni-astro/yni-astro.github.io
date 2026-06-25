@@ -21,5 +21,29 @@
     <p>© {{ 'now' | date: '%Y' }} {{ site.author.name }} · last updated {{ site.time | date: '%b %Y' }}</p>
   </footer>
 </main>
+
+<script>
+  /* Single-page scroll-spy: highlight the sidebar link for the section currently in view. */
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('.sidebar__navlink[href^="#"]'));
+    if (!links.length) return;
+    var sections = links
+      .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+      .filter(Boolean);
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+
+    function setActive(id) {
+      links.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+      });
+    }
+
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { obs.observe(s); });
+  })();
+</script>
 </body>
 </html>

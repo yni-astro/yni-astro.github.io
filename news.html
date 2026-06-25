@@ -3,6 +3,7 @@ layout: default
 title: News
 show_title: true
 permalink: /news/
+published: false   # hidden for now — flip to true (and re-add a nav link / section) to restore
 ---
 
 {% assign sorted = site.news | sort: "date" | reverse %}

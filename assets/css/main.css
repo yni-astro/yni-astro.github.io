@@ -7,7 +7,7 @@
 :root {
   /* === Active palette (light academic) ===
      Swap with one of the presets below and save — every page rethemes. */
-  --bg:            #fafaf7;         /* main background */
+  --bg:            #ffffff;         /* main background */
   --bg-sidebar:    #ffffff;         /* sidebar bg */
   --bg-card:       #ffffff;         /* publication / news card bg */
   --bg-card-hov:   #f4f4f0;         /* card hover */
@@ -217,47 +217,9 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 }
 
 /* =========================================================================
-   Home page
+   Inline accents
    ========================================================================= */
-.hero {
-  margin: -16px 0 42px;
-  text-align: center;
-}
-/*  HERO FIGURE — three knobs to tune size & cropping:
-    1) aspect-ratio  — overall shape; e.g. "16 / 6" (cinematic), "16 / 9" (taller),
-                       "21 / 9" (very wide); or remove and use max-height instead.
-    2) object-fit    — cover  = zoom-crop to fill (default; may crop edges)
-                       contain = letterbox the whole figure (no cropping)
-                       none   = display at native size (may overflow)
-    3) object-position — which part survives a crop. e.g. "center", "center top",
-                       "25% 75%". Default "center" keeps the middle.
-    For a fixed pixel height instead of an aspect ratio, delete `aspect-ratio`
-    and use `max-height: 380px;`.
-*/
-.hero__figure {
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-}
-.hero__name {
-  font-size: 2.6rem;
-  margin: 32px 0 4px;
-  letter-spacing: -0.02em;
-}
-.hero__tag {
-  color: var(--text-dim);
-  font-size: 1.05rem;
-  margin: 0 0 24px;
-}
-.hero__intro {
-  text-align: left;
-  font-size: 1.04rem;
-  color: var(--text);
-}
-.hero__intro em, .accent-italic {
+.accent-italic {
   font-family: var(--font-display-italic);
   font-style: italic;
   color: var(--accent-warm);
@@ -290,92 +252,6 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 }
 
 /* =========================================================================
-   Publication cards
-   ========================================================================= */
-.pub-list {
-  display: flex; flex-direction: column;
-  gap: 28px;
-}
-.pub {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 22px;
-  padding: 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  transition: background .15s, border-color .15s;
-}
-.pub:hover {
-  background: var(--bg-card-hov);
-  border-color: #353841;
-}
-.pub__thumb {
-  background: var(--bg-thumb);
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  aspect-ratio: 4 / 3;
-  display: flex; align-items: center; justify-content: center;
-}
-.pub__thumb img { width: 100%; height: 100%; object-fit: cover; }
-.pub__thumb--placeholder {
-  color: var(--text-faint);
-  font-size: 0.82rem;
-  background: var(--bg-thumb);
-}
-
-.pub__title {
-  font-size: 1.05rem; font-weight: 600;
-  margin: 0 0 6px; line-height: 1.35;
-}
-.pub__title a { color: var(--text); }
-.pub__title a:hover { color: var(--accent); text-decoration: none; }
-.pub__authors {
-  font-size: 0.92rem; color: var(--text-dim);
-  margin: 0 0 6px;
-}
-.pub__authors strong { color: var(--accent-warm); font-weight: 600; }
-.pub__venue {
-  font-size: 0.85rem; color: var(--text-faint);
-  margin: 0 0 10px;
-}
-.pub__venue em { font-style: italic; }
-.pub__excerpt {
-  font-size: 0.93rem;
-  color: var(--text-dim);
-  margin: 0 0 10px;
-}
-.pub__links {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  font-size: 0.82rem;
-}
-.pub__links a {
-  border: 1px solid var(--border);
-  padding: 3px 10px;
-  border-radius: 4px;
-  color: var(--text-dim);
-}
-.pub__links a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-}
-.pub__badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  padding: 1px 7px;
-  border-radius: 3px;
-  background: var(--tint-warm);
-  color: var(--accent-warm);
-  margin-left: 8px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 600;
-  vertical-align: middle;
-}
-
-/* =========================================================================
    Research highlights — large figures + abstract per featured paper
    ========================================================================= */
 .highlight {
@@ -386,13 +262,8 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 .highlight:last-child { border-bottom: none; padding-bottom: 0; }
 
 .highlight__figure {
-  width: 100%;
-  max-height: 480px;
-  object-fit: contain;          /* `contain` so figures aren't cropped — change to `cover` for crop-fit */
-  background: var(--bg-thumb);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 12px;
+  width: 100%;                  /* full column width, flush with the page (no frame) */
+  height: auto;                 /* natural aspect ratio — no height cap */
 }
 .highlight__title {
   font-size: 1.45rem;
@@ -507,35 +378,6 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 .news-mini__body p { margin: 0; }
 
 /* =========================================================================
-   CV-style two-column items
-   ========================================================================= */
-.cv-section { margin-bottom: 32px; }
-.cv-section h2 {
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin: 0 0 14px;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 8px;
-  font-weight: 600;
-}
-
-.cv-row {
-  display: grid;
-  grid-template-columns: 170px 1fr;
-  gap: 16px;
-  padding: 10px 0;
-}
-.cv-row__when {
-  color: var(--text-faint);
-  font-size: 0.85rem;
-  font-variant-numeric: tabular-nums;
-}
-.cv-row__what strong { color: var(--text); font-weight: 600; }
-.cv-row__what .where { color: var(--text-dim); }
-
-/* =========================================================================
    Contact page
    ========================================================================= */
 .contact-list {
@@ -554,29 +396,18 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 }
 
 /* =========================================================================
-   Research interests block (used on About + Home)
+   Research interests — simple bulleted list (no boxes)
    ========================================================================= */
-.interests {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px; margin: 18px 0;
+.interests-list {
+  margin: 10px 0 0;
+  padding-left: 1.4em;
 }
-.interest-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 16px 18px;
-  border-radius: 6px;
+.interests-list li {
+  margin-bottom: 9px;
+  line-height: 1.6;
+  color: var(--text);
 }
-.interest-card h3 {
-  margin: 0 0 6px;
-  font-size: 0.97rem;
-  color: var(--accent);
-}
-.interest-card p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--text-dim);
-}
+.interests-list li::marker { color: var(--text-faint); }
 
 /* =========================================================================
    Responsive: collapse sidebar to top bar on narrow screens
@@ -619,14 +450,71 @@ pre  { padding: .9em 1em; overflow-x: auto; }
     padding: 36px 24px 60px;
   }
 
-  .pub {
-    grid-template-columns: 1fr;
-  }
-  .pub__thumb { max-width: 280px; }
-
-  .timeline-item, .cv-row {
+  .timeline-item {
     grid-template-columns: 1fr;
     gap: 4px;
   }
-  .hero__name { font-size: 2.0rem; }
 }
+
+/* =========================================================================
+   Single-page sections + scroll behaviour
+   ========================================================================= */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 24px; }
+
+.page-section {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+.section-title {
+  font-size: 1.9rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 6px;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  margin-top: 12px;
+  border-top: 2px solid var(--accent);
+  opacity: 0.7;
+}
+.section-lede {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin: 14px 0 30px;
+}
+.subhead { font-size: 1.1rem; margin: 1.8em 0 .4em; }
+
+/* Landing (About) name + role */
+.page-name { font-size: 2.4rem; letter-spacing: -0.02em; margin: 0 0 4px; }
+.page-role { color: var(--text-dim); font-size: 1.05rem; margin: 0 0 22px; }
+
+/* Clean publications list (Minghao-Guo style) */
+.pub-group-title {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 30px 0 10px;
+}
+.pub-clean { margin: 0 0 8px; padding-left: 1.5em; }
+.pub-clean li { margin-bottom: 15px; padding-left: 4px; }
+.pub-clean li::marker { color: var(--text-faint); font-size: 0.9rem; }
+.pub-line { line-height: 1.6; font-size: 0.95rem; }
+.pub-line__authors { color: var(--text); }
+.pub-line__authors strong { color: var(--accent-warm); font-weight: 600; }
+.pub-line__title { color: var(--text); font-weight: 600; }
+.pub-line__title:hover { color: var(--accent); text-decoration: none; }
+.pub-line__venue { color: var(--text-dim); }
+.pub-line__venue em { font-style: italic; }
+.pub-line__links { font-size: 0.85rem; white-space: nowrap; }
+.pub-line__links a {
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  margin-left: 2px;
+}
+.pub-line__links a:hover { border-color: var(--accent); text-decoration: none; }
