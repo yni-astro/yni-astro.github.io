@@ -7,6 +7,43 @@
 <meta name="description" content="{{ site.description }}">
 <meta name="author" content="{{ site.author.name }}">
 
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- Social preview (Open Graph + Twitter) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ site.author.name }} — {{ site.author.position }}, {{ site.author.affiliation }}">
+<meta property="og:description" content="{{ site.description }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/images/profile.jpg' | absolute_url }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ site.author.name }} — {{ site.author.position }}, {{ site.author.affiliation }}">
+<meta name="twitter:description" content="{{ site.description }}">
+<meta name="twitter:image" content="{{ '/assets/images/profile.jpg' | absolute_url }}">
+
+<!-- Structured data: links this page to your scholarly identity (helps Google disambiguate "Yang Ni") -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name }}",
+  "alternateName": "{{ site.author.chinese_name }}",
+  "jobTitle": "{{ site.author.position }}",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Tsinghua University" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Nanjing University" },
+  "url": "{{ '/' | absolute_url }}",
+  "image": "{{ '/assets/images/profile.jpg' | absolute_url }}",
+  "email": "{{ site.author.email }}",
+  "knowsAbout": ["Protoplanetary disks", "Planet formation", "Gravitational instability", "Star formation", "Giant molecular clouds", "Computational astrophysics"],
+  "sameAs": [
+    "https://orcid.org/{{ site.author.orcid }}",
+    "https://github.com/{{ site.author.github }}",
+    "{{ site.author.ads_library }}",
+    "https://www.ias.tsinghua.edu.cn/en/"
+  ]
+}
+</script>
+
 <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
 <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
