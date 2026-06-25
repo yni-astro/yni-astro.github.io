@@ -5,8 +5,8 @@ description: >-
   Yang Ni — PhD candidate in astronomy at Tsinghua University. Research on
   protoplanetary disks and planet formation via gravitational instability, star
   formation in giant molecular clouds and AGN disks, and computational astrophysics.
-url: ""        # leave empty until you go public
-baseurl: ""    # leave empty for root deployment
+url: "https://yni-astro.github.io"   # GitHub Pages user site
+baseurl: ""                          # root deployment
 
 # Author / personal info — referenced from layouts
 author:

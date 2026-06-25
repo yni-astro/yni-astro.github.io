@@ -15,15 +15,4 @@ doi_link: "https://doi.org/10.3847/1538-4357/ae16a4"
 highlight_image:  /assets/images/research/2025-rh-disks.png   # larger figure for the Research page (falls back to thumbnail)
 excerpt: "We present 3D radiation hydrodynamic simulations of self-gravitating protoplanetary disks and demonstrate that gas giants can form directly via disk fragmentation in the early disk evolution stage."
 ---
-We perform a suite of 3D radiation hydrodynamic simulations of self-gravitating
-young protoplanetary disks using the meshless finite-mass method, including a full
-M1 closure for the radiation transport. Compared with locally isothermal models, the
-inclusion of radiative cooling alters the threshold for fragmentation and yields
-a population of bound clumps that survive disk evolution.
-
-We find that disks well above the Toomre instability threshold fragment efficiently
-into gravitationally bound clumps with masses in the gas-giant range. The clumps
-form preferentially at intermediate radii where cooling is fast enough to allow
-collapse but radial inflow is not yet stripping the disk. We discuss implications
-for the population of gas giants observed at wide separations and the role of
-disk fragmentation as a complement to core accretion.
+We conduct a suite of global three-dimensional radiation hydrodynamics (RHD) simulations of self-gravitating PPDs using the meshless finite-mass (MFM) method. By implementing radiation transport via the M1 closure and systematically varying disk mass and opacity, we show that increasing disk mass and lowering opacity promote fragmentation by enhancing radiative cooling. Non-fragmenting disks settle into a gravito-turbulent state with low-order spiral structures and effective angular momentum transport characterized by $\alpha \sim \beta_\mathrm{cool}^{-1}$. In fragmenting disks, a subset of gravitationally bound clumps survives as long-lived fragments. Their initial masses form a consistent distribution around $\Sigma \cdot \lambda_\mathrm{T} \cdot 2\,(c_s/\Omega_\mathrm{K})$ (with $\lambda_\mathrm{T}$ the Toomre wavelength), corresponding to $\sim 0.3 - 10\,M_\mathrm{J}$ in our simulations, consistent with being gas giants. These results demonstrate that GI can produce planet-mass fragments under more realistic conditions, reinforcing it as a viable gas giant formation pathway and motivating further studies of fragment evolution and observational signatures.
