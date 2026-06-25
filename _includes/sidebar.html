@@ -22,6 +22,7 @@
 
   <div class="sidebar__socials">
     <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID"><i class="ai ai-orcid"></i></a>
+    <a href="{{ site.author.scholar }}" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
     {% comment %} Use curated ADS library if set in _config.yml; fall back to author search. {% endcomment %}
     {% if site.author.ads_library and site.author.ads_library != '' %}
       {% assign ads_url = site.author.ads_library %}
