@@ -9,7 +9,7 @@
   </a>
 
   <div class="sidebar__name">
-    <a href="#about">{{ site.author.name }}</a>
+    <a href="#about">{{ site.author.name }}{% if site.author.chinese_name and site.author.chinese_name != '' %} ({{ site.author.chinese_name }}){% endif %}</a>
   </div>
   <div class="sidebar__role">{{ site.author.position }}</div>
 

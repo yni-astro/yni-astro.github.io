@@ -2,16 +2,16 @@
 title: "Yang Ni"
 tagline: "PhD Candidate · Tsinghua University · Astronomy"
 description: >-
-  Yang Ni — PhD Candidate in Astronomy at Tsinghua University.
-  Research on protoplanetary disks, planet formation, giant molecular clouds,
-  and star formation.
+  Yang Ni — PhD candidate in astronomy at Tsinghua University. Research on
+  protoplanetary disks and planet formation via gravitational instability, star
+  formation in giant molecular clouds and AGN disks, and computational astrophysics.
 url: ""        # leave empty until you go public
 baseurl: ""    # leave empty for root deployment
 
 # Author / personal info — referenced from layouts
 author:
   name: Yang Ni
-  chinese_name: 倪杨           # optional, change or remove
+  chinese_name: 倪阳           # optional, change or remove
   email: ny22@mails.tsinghua.edu.cn
   position: PhD Candidate in Astronomy
   affiliation: Tsinghua University

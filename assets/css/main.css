@@ -185,7 +185,7 @@ pre  { padding: .9em 1em; overflow-x: auto; }
    ========================================================================= */
 .content {
   margin-left: var(--sidebar-w);
-  padding: 72px var(--content-pad) 96px;
+  padding: 36px var(--content-pad) 80px;
   max-width: calc(var(--content-max) + 2 * var(--content-pad));
   min-height: 100vh;
 }
@@ -227,7 +227,7 @@ pre  { padding: .9em 1em; overflow-x: auto; }
 
 .btn-row {
   display: flex; flex-wrap: wrap; gap: 12px;
-  margin: 26px 0 8px;
+  margin: 16px 0 8px;
 }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -463,8 +463,8 @@ html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 24px; }
 
 .page-section {
-  margin-top: 56px;
-  padding-top: 40px;
+  margin-top: 32px;
+  padding-top: 24px;
   border-top: 1px solid var(--rule);
 }
 .section-title {
@@ -483,13 +483,12 @@ section[id] { scroll-margin-top: 24px; }
 .section-lede {
   color: var(--text-dim);
   font-size: 0.95rem;
-  margin: 14px 0 30px;
+  margin: 8px 0 14px;
 }
-.subhead { font-size: 1.1rem; margin: 1.8em 0 .4em; }
+.interests-lead { margin: 1.1em 0 4px; }
 
-/* Landing (About) name + role */
-.page-name { font-size: 2.4rem; letter-spacing: -0.02em; margin: 0 0 4px; }
-.page-role { color: var(--text-dim); font-size: 1.05rem; margin: 0 0 22px; }
+/* Landing (About) name heading */
+.page-name { font-size: 2.4rem; letter-spacing: -0.02em; margin: 0 0 14px; }
 
 /* Clean publications list (Minghao-Guo style) */
 .pub-group-title {

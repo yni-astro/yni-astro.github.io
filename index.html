@@ -6,47 +6,43 @@ show_title: false
 
 <!-- ============================ ABOUT (landing) ============================ -->
 <section id="about">
-  <h1 class="page-name">{{ site.author.name }}</h1>
-  <p class="page-role">
-    {{ site.author.position }} ·
-    <a href="https://astro.tsinghua.edu.cn/" target="_blank" rel="noopener">{{ site.author.affiliation }}</a>
+  <h1 class="page-name">Welcome!</h1>
+
+  <p>
+    I am Yang Ni (倪阳), a PhD candidate in astronomy at Tsinghua University, advised by
+    <a href="http://i.astro.tsinghua.edu.cn/~xbai/" target="_blank" rel="noopener">Prof. Xuening Bai</a>
+    and co-advised by
+    <a href="https://sites.google.com/view/hpdeng/home" target="_blank" rel="noopener">Prof. Hongping Deng</a>
+    at the Shanghai Astronomical Observatory. I am currently a visiting researcher at
+    Princeton University, working with Prof. Jeremy Goodman. I received my B.S. in Astronomy
+    from Nanjing University (Magna Cum Laude) in 2022.
   </p>
 
   <p>
-    I am a PhD candidate in astronomy at Tsinghua University, advised by
-    <a href="http://i.astro.tsinghua.edu.cn/~xbai/" target="_blank" rel="noopener">Prof. Xuening Bai</a>
-    (expected to defend in 2027). My research uses
-    <em class="accent-italic">(radiation-)hydrodynamic simulations</em> to study how stars
-    and planets are born — from the giant molecular clouds that birth star clusters down to
-    the protoplanetary disks where gas giants emerge.
-  </p>
-  <p>
-    Currently I focus on the early-stage evolution of self-gravitating protoplanetary disks
-    and on the life cycle of giant molecular clouds in galaxy-scale simulations. I work
-    primarily with the
+    My research centers on the early-stage evolution of
+    protoplanetary disks (PPDs) — in particular, the outcomes of
+    gravitational instability (GI). Using high-resolution radiative (magneto-)hydrodynamics
+    simulations, I study how GI fragments form, grow in mass, and build up their interior
+    structure, and whether they can become gas giants. I also develop 1+1D models that follow
+    the global evolution of PPDs from the early Class 0/I phase through the late Class II stage.
+    More recently, I have been extending our radiative hydro simulations to star
+    formation in the outer regions of active galactic nucleus (AGN) disks. Beyond accretion disks, I study the star formation and life cycle of giant molecular clouds
+    in galaxy-scale simulations. I work extensively with the
     <a href="http://www.tapir.caltech.edu/~phopkins/Site/GIZMO.html" target="_blank" rel="noopener">GIZMO</a>
-    code and am a developer of its M1 radiative-transfer module. Before Tsinghua I received
-    my B.S. in Astronomy from Nanjing University (Magna Cum Laude, 2022), where I worked with
-    Prof. Bin Luo on high-energy observations.
+    code, where I contributed to its second-order M1 radiative-transfer module.
   </p>
 
   <div class="btn-row">
     <a class="btn btn--primary" href="{{ '/assets/pdf/CV_Yang.pdf' | relative_url }}" target="_blank">
       <i class="fa-solid fa-file-arrow-down"></i> Download CV
     </a>
-    <a class="btn" href="#publications">
-      <i class="fa-solid fa-book"></i> Publications
-    </a>
-    <a class="btn" href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">
-      <i class="ai ai-orcid"></i> ORCID
-    </a>
   </div>
 
-  <h3 class="subhead">Research interests</h3>
+  <p class="interests-lead">My research interests include:</p>
   <ul class="interests-list">
-    <li><strong>Protoplanetary disks &amp; planet formation:</strong> early-stage evolution of self-gravitating disks; direct formation of gas giants via disk fragmentation in 3D radiation hydrodynamics</li>
-    <li><strong>Giant molecular clouds &amp; star formation:</strong> the life cycle of GMCs in Milky-Way-mass galaxies; the role of stellar feedback; how galactic-scale physics regulates cloud-scale star-formation efficiency</li>
-    <li><strong>Numerical methods:</strong> radiation hydrodynamics; M1 closure schemes; large-scale parallel simulations on HPC systems</li>
+    <li>Protoplanetary and AGN disks, planet formation, gravitational instability, MHD winds, magnetorotational instability</li>
+    <li>Star formation, giant molecular clouds, interstellar medium</li>
+    <li>Computational astrophysics, radiative (magneto-)hydrodynamics, performance-portable computing</li>
   </ul>
 </section>
 
@@ -54,7 +50,7 @@ show_title: false
 <section id="research" class="page-section">
   <h2 class="section-title">Research</h2>
   <p class="section-lede">
-    A curated set of in-depth summaries of selected work. For the full list of papers
+    Highlights on recent work. For the full list of papers
     see <a href="#publications">Publications</a> below.
   </p>
 
@@ -141,7 +137,7 @@ show_title: false
 <section id="contact" class="page-section">
   <h2 class="section-title">Contact</h2>
   <p style="color: var(--text-dim);">
-    Happy to chat about protoplanetary disks, GMCs, radiation hydrodynamics, or
+    Happy to chat about any astrophysical or computational topics. I am also open to
     collaboration ideas. Email is the fastest way to reach me.
   </p>
 
@@ -152,7 +148,7 @@ show_title: false
     </li>
     <li>
       <i class="fa-solid fa-building-columns"></i>
-      Department of Astronomy, Tsinghua University, Beijing, China
+      Office 408, Institute for Advanced Study, Tsinghua University, Beijing, China
     </li>
     <li>
       <i class="fa-brands fa-orcid"></i>
