@@ -21,7 +21,7 @@
   </nav>
 
   <div class="sidebar__socials">
-    <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID"><i class="ai ai-orcid"></i></a>
+    <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID"><svg viewBox="0 0 512 512" aria-hidden="true" style="width:1em;height:1em;fill:currentColor;vertical-align:-0.125em;"><path d="svg8"/></svg></a>
     <a href="{{ site.author.scholar }}" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:1em;height:1em;fill:currentColor;vertical-align:-0.125em;"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
     {% comment %} Use curated ADS library if set in _config.yml; fall back to author search. {% endcomment %}
     {% if site.author.ads_library and site.author.ads_library != '' %}
@@ -29,6 +29,6 @@
     {% else %}
       {% assign ads_url = 'https://ui.adsabs.harvard.edu/search/q=author%3A%22' | append: site.author.ads | url_encode | append: '%22&sort=date%20desc' %}
     {% endif %}
-    <a href="{{ ads_url }}" target="_blank" rel="noopener" title="ADS" aria-label="ADS"><i class="ai ai-ads"></i></a>
+    <a href="{{ ads_url }}" target="_blank" rel="noopener" title="ADS" aria-label="ADS"><svg viewBox="0 0 512 512" aria-hidden="true" style="width:1em;height:1em;fill:currentColor;vertical-align:-0.125em;"><path d="svg8"/></svg></a>
   </div>
 </aside>
