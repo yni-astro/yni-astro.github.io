@@ -1,5 +1,5 @@
 ---
-title: "Modeling the Evolution of Protoplanetary Disks: Transition from GI-Driven to MHD Wind-Driven Accretion Regulated by Self-Shadowing"
+title: "Modeling the Evolution of Protoplanetary Disks: Two Pathways from Gravitational Instability to MHD Wind-Driven Accretion"
 authors: "**Y. Ni**, W. Xu, X. Bai"
 journal: "To be submitted"
 year: 2026
