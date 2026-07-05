@@ -81,7 +81,7 @@ show_title: false
           {{ pub.title }}
         {% endif %}
       </h3>
-      <p class="highlight__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      <p class="highlight__authors">{{ pub.authors_full | default: pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
       <p class="highlight__venue">
         <em>{{ pub.journal }}</em>{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}{% if pub.year %} ({{ pub.year }}){% endif %}
       </p>

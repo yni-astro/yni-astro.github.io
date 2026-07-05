@@ -1,6 +1,7 @@
 ---
 title: "Radiation Hydrodynamics of Self-gravitating Protoplanetary Disks I. Direct Formation of Gas Giants via Disk Fragmentation"
 authors: "**Y. Ni**, H. Deng, X. Bai"
+authors_full: "**Yang Ni**, Hongping Deng, Xue-Ning Bai"
 journal: "ApJ"
 volume: "995"
 pages: "96"

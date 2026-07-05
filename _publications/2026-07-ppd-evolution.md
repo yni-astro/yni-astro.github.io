@@ -1,6 +1,7 @@
 ---
 title: "Modeling the Evolution of Protoplanetary Disks: Two Pathways from Gravitational Instability to MHD Wind-Driven Accretion"
 authors: "**Y. Ni**, W. Xu, X. Bai"
+authors_full: "**Yang Ni**, Wenrui Xu, Xue-Ning Bai"
 journal: "To be submitted"
 year: 2026
 date: 2026-07-05                     # to-be-submitted; sorts to the top of the first-author list
