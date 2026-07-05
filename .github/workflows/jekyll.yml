@@ -24,6 +24,8 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
       - uses: actions/configure-pages@v4
+        with:
+          enablement: true
       - run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
