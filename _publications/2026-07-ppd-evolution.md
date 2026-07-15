@@ -2,11 +2,12 @@
 title: "Modeling the Evolution of Protoplanetary Disks: Two Pathways from Gravitational Instability to MHD Wind-Driven Accretion"
 authors: "**Y. Ni**, W. Xu, X. Bai"
 authors_full: "**Yang Ni**, Wenrui Xu, Xue-Ning Bai"
-journal: "To be submitted"
+journal: "Submitted"
 year: 2026
 date: 2026-07-05                     # to-be-submitted; sorts to the top of the first-author list
 is_first_author: true
 is_highlight: true                   # feature on the Research page
+arxiv_link: "https://arxiv.org/abs/2607.12007"
 highlight_image: /assets/images/research/2026-ppd-evolution.png
 excerpt: "A semi-2D (1+1D) model of global protoplanetary-disk evolution: the interplay of gravitational instability, MHD winds, and self-shadowing drives the transition from GI-dominated Class 0/I to wind-driven Class II disks."
 ---
