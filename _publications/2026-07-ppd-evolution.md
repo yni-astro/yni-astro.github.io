@@ -8,6 +8,7 @@ date: 2026-07-05                     # to-be-submitted; sorts to the top of the 
 is_first_author: true
 is_highlight: true                   # feature on the Research page
 arxiv_link: "https://arxiv.org/abs/2607.12007"
+ads_link: "https://ui.adsabs.harvard.edu/abs/2026arXiv260712007N"
 highlight_image: /assets/images/research/2026-ppd-evolution.png
 excerpt: "A semi-2D (1+1D) model of global protoplanetary-disk evolution: the interplay of gravitational instability, MHD winds, and self-shadowing drives the transition from GI-dominated Class 0/I to wind-driven Class II disks."
 ---
