@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   build:
+    # Only the public Pages repo can deploy; skip silently on the private source mirror.
+    if: github.repository == 'yni-astro/yni-astro.github.io'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,6 +36,7 @@ jobs:
           path: ./_site
 
   deploy:
+    if: github.repository == 'yni-astro/yni-astro.github.io'
     needs: build
     runs-on: ubuntu-latest
     environment:
