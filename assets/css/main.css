@@ -265,6 +265,15 @@ pre  { padding: .9em 1em; overflow-x: auto; }
   width: 100%;                  /* full column width, flush with the page (no frame) */
   height: auto;                 /* natural aspect ratio — no height cap */
 }
+.highlight__figure--compact {
+  width: auto;                  /* tall/near-square figures: don't fill the column */
+  max-width: min(64%, 620px);
+  display: block;
+  margin: 8px auto 0;
+}
+@media (max-width: 900px) {
+  .highlight__figure--compact { max-width: 92%; }
+}
 .highlight__title {
   font-size: 1.45rem;
   margin: 26px 0 6px;
