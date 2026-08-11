@@ -5,7 +5,7 @@
 -->
 <aside class="sidebar">
   <a class="sidebar__avatar-link" href="#about" aria-label="About">
-    <img class="sidebar__avatar" src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="{{ site.author.name }}">
+    <img class="sidebar__avatar" src="{{ '/assets/images/profile.jpg' | relative_url }}?v={{ site.time | date: '%s' }}" alt="{{ site.author.name }}">
   </a>
 
   <div class="sidebar__name">

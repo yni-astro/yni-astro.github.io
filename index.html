@@ -35,7 +35,7 @@ show_title: false
   </p>
 
   <div class="btn-row">
-    <a class="btn btn--primary" href="{{ '/assets/pdf/CV_Yang.pdf' | relative_url }}" target="_blank">
+    <a class="btn btn--primary" href="{{ '/assets/pdf/CV_Yang.pdf' | relative_url }}?v={{ site.time | date: '%s' }}" target="_blank">
       <i class="fa-solid fa-file-arrow-down"></i> Download CV
     </a>
   </div>
@@ -69,7 +69,7 @@ show_title: false
     <article class="highlight">
       {% assign img = pub.highlight_image | default: pub.thumbnail %}
       {% if img %}
-        <img class="highlight__figure" src="{{ img | relative_url }}" alt="">
+        <img class="highlight__figure" src="{{ img | relative_url }}?v={{ site.time | date: '%s' }}" alt="">
       {% endif %}
 
       <h3 class="highlight__title">
