@@ -71,6 +71,9 @@ show_title: false
       {% if img %}
         <img class="highlight__figure" src="{{ img | relative_url }}?v={{ site.time | date: '%s' }}" alt="">
       {% endif %}
+      {% if pub.highlight_image_2 %}
+        <img class="highlight__figure" src="{{ pub.highlight_image_2 | relative_url }}?v={{ site.time | date: '%s' }}" alt="">
+      {% endif %}
 
       <h3 class="highlight__title">
         {% if pub.ads_link %}
