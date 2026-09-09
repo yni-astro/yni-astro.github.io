@@ -101,6 +101,7 @@ show_title: false
         {% if pub.ads_link   %}<a href="{{ pub.ads_link }}"   target="_blank" rel="noopener">ADS</a>{% endif %}
         {% if pub.arxiv_link %}<a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">arXiv</a>{% endif %}
         {% if pub.doi_link   %}<a href="{{ pub.doi_link }}"   target="_blank" rel="noopener">Journal</a>{% endif %}
+        {% unless pub.arxiv_link %}{% if pub.eprint_link %}<a href="{{ pub.eprint_link | relative_url }}" target="_blank" rel="noopener">e-print</a>{% endif %}{% endunless %}
         {% if pub.code_link  %}<a href="{{ pub.code_link }}"  target="_blank" rel="noopener">Code</a>{% endif %}
       </div>
     </article>

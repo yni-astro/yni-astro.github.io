@@ -7,6 +7,7 @@ year: 2026
 date: 2026-08-11                     # to-be-submitted; sorts to the top of the first-author list
 is_first_author: true
 is_highlight: true                   # feature on the Research page
+eprint_link: /assets/pdf/RHDGI-II_preprint.pdf   # shown only until arxiv_link is set (then the e-print button auto-hides)
 highlight_image:   /assets/images/research/2026-rhdgi-ii-fig1.png
 highlight_image_2: /assets/images/research/2026-rhdgi-ii-finalmass.png
 highlight_image_2_compact: true      # near-square figure — cap width and center it
