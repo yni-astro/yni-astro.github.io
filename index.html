@@ -97,8 +97,11 @@ show_title: false
         {% endif %}
       </div>
 
+      {% assign scix_derived = pub.ads_link | replace: 'https://ui.adsabs.harvard.edu/abs/', 'https://scixplorer.org/abs/' | append: '/abstract' %}
+      {% assign scix = pub.scix_link | default: scix_derived %}
       <div class="highlight__links">
         {% if pub.ads_link   %}<a href="{{ pub.ads_link }}"   target="_blank" rel="noopener">ADS</a>{% endif %}
+        {% if pub.ads_link   %}<a href="{{ scix }}"           target="_blank" rel="noopener">SciX</a>{% endif %}
         {% if pub.arxiv_link %}<a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">arXiv</a>{% endif %}
         {% if pub.doi_link   %}<a href="{{ pub.doi_link }}"   target="_blank" rel="noopener">Journal</a>{% endif %}
         {% unless pub.arxiv_link %}{% if pub.eprint_link %}<a href="{{ pub.eprint_link | relative_url }}" target="_blank" rel="noopener">e-print</a>{% endif %}{% endunless %}
@@ -113,11 +116,14 @@ show_title: false
   <h2 class="section-title">Publications</h2>
   <p class="section-lede">
     Full bibliography on
-    {% if site.author.ads_library and site.author.ads_library != '' %}
-      <a href="{{ site.author.ads_library }}" target="_blank" rel="noopener">NASA ADS</a>
-    {% else %}
-      <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22{{ site.author.ads | url_encode }}%22&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
-    {% endif %}
+    {%- if site.author.ads_library and site.author.ads_library != '' %}
+    <a href="{{ site.author.ads_library }}" target="_blank" rel="noopener">NASA ADS</a>
+    {%- else %}
+    <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22{{ site.author.ads | url_encode }}%22&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
+    {%- endif -%}
+    {%- if site.author.scix_library and site.author.scix_library != '' -%}
+    , <a href="{{ site.author.scix_library }}" target="_blank" rel="noopener">SciX</a>,
+    {%- endif %}
     and <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener">ORCID</a>.
   </p>
 

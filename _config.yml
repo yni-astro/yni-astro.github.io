@@ -23,6 +23,8 @@ author:
   # 1. open your library on ADS, 2. click "Share Library", 3. copy the URL.
   # Leave empty ("") to fall back to an ADS author search.
   ads_library: "https://ui.adsabs.harvard.edu/public-libraries/frwLTIQUT2qIEgSxaHydnQ"
+  # Same library on NASA SciX (Science Explorer) — ADS libraries share their ID with SciX.
+  scix_library: "https://scixplorer.org/public-libraries/frwLTIQUT2qIEgSxaHydnQ"
 
 # Build settings
 markdown: kramdown

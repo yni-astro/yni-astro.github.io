@@ -5,9 +5,11 @@
 -->
 {% assign pub = include.pub %}
 {% if pub.ads_link %}{% assign primary = pub.ads_link %}{% elsif pub.arxiv_link %}{% assign primary = pub.arxiv_link %}{% else %}{% assign primary = pub.doi_link %}{% endif %}
+{% assign scix_derived = pub.ads_link | replace: 'https://ui.adsabs.harvard.edu/abs/', 'https://scixplorer.org/abs/' | append: '/abstract' %}
+{% assign scix = pub.scix_link | default: scix_derived %}
 <li class="pub-line">
   <span class="pub-line__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines }}</span>,
   {% if primary %}<a class="pub-line__title" href="{{ primary }}" target="_blank" rel="noopener">{{ pub.title }}</a>{% else %}<span class="pub-line__title">{{ pub.title }}</span>{% endif %},
   <span class="pub-line__venue"><em>{{ pub.journal }}</em>{% if pub.volume %} {{ pub.volume }}{% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}{% if pub.year %} ({{ pub.year }}){% endif %}.</span>
-  <span class="pub-line__links">{% if pub.ads_link %}<a href="{{ pub.ads_link }}" target="_blank" rel="noopener">ADS</a>{% endif %}{% if pub.arxiv_link %}{% if pub.ads_link %} · {% endif %}<a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">arXiv</a>{% endif %}{% if pub.doi_link %} · <a href="{{ pub.doi_link }}" target="_blank" rel="noopener">DOI</a>{% endif %}{% unless pub.arxiv_link %}{% if pub.eprint_link %}{% if pub.ads_link or pub.doi_link %} · {% endif %}<a href="{{ pub.eprint_link | relative_url }}" target="_blank" rel="noopener">e-print</a>{% endif %}{% endunless %}</span>
+  <span class="pub-line__links">{% if pub.ads_link %}<a href="{{ pub.ads_link }}" target="_blank" rel="noopener">ADS</a> · <a href="{{ scix }}" target="_blank" rel="noopener">SciX</a>{% endif %}{% if pub.arxiv_link %}{% if pub.ads_link %} · {% endif %}<a href="{{ pub.arxiv_link }}" target="_blank" rel="noopener">arXiv</a>{% endif %}{% if pub.doi_link %} · <a href="{{ pub.doi_link }}" target="_blank" rel="noopener">DOI</a>{% endif %}{% unless pub.arxiv_link %}{% if pub.eprint_link %}{% if pub.ads_link or pub.doi_link %} · {% endif %}<a href="{{ pub.eprint_link | relative_url }}" target="_blank" rel="noopener">e-print</a>{% endif %}{% endunless %}</span>
 </li>
