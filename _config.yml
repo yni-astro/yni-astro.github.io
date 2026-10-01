@@ -50,6 +50,8 @@ exclude:
   - README.md
   - PUBLISH.md
   - SETUP.md
-  - profilephoto.jpg  # full-resolution master; build uses the optimized assets/images/profile.jpg
+  - profilephoto.jpg  # full-resolution avatar master (either extension); build uses assets/images/profile.jpg
+  - profilephoto.png
+  - cv                # CV LaTeX source; the site serves the compiled assets/pdf/CV_Yang.pdf
   - .DS_Store
   - .gitignore

@@ -1,5 +1,5 @@
 ---
-title: "Radiation Hydrodynamics of Self-gravitating Protoplanetary Disks II. Accretion, Migration, Spin-up, Contraction and Final Fates of GI Fragments"
+title: "Radiation Hydrodynamics of Self-gravitating Protoplanetary Disks II. Accretion, Migration, Spin, and Internal Structure of GI Fragments"
 authors: "**Y. Ni**, H. Deng, X. Bai"
 authors_full: "**Yang Ni**, Hongping Deng, Xue-Ning Bai"
 journal: "To be submitted"

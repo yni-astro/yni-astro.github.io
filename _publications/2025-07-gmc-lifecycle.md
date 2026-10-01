@@ -1,5 +1,5 @@
 ---
-title: "The Life Cycle of the Giant Molecular Clouds in Simulated Milky Way-mass Galaxies"
+title: "The life cycle of giant molecular clouds in simulated Milky Way-mass galaxies"
 authors: "**Y. Ni**, H. Li, M. Vogelsberger, L. Sales, F. Marinacci, P. Torrey"
 authors_full: "**Yang Ni**, Hui Li, Mark Vogelsberger, Laura V. Sales, Federico Marinacci, Paul Torrey"
 journal: "A&A"

@@ -103,10 +103,11 @@ as a new section to match the single-page style.
 
 ## Update the CV, avatar, or favicon
 
-- **CV** — replace `assets/pdf/CV_Yang.pdf` (keep the filename). The "Download CV" button
-  in the About section points there.
-- **Avatar** — replace `assets/images/profile.jpg` (kept small for the web).
-  `profilephoto.jpg` at the repo root is the full-resolution master.
+- **CV** — the LaTeX source lives in `cv/` (single source of truth). Edit `cv/main.tex`,
+  run `./cv/build.sh` (compiles and installs `assets/pdf/CV_Yang.pdf`), then commit and push.
+  Never edit `assets/pdf/CV_Yang.pdf` directly; the "Download CV" button points there.
+- **Avatar** — replace `assets/images/profile.jpg` (600×600, kept small for the web).
+  `profilephoto.png` at the repo root is the full-resolution master (excluded from the build).
 - **Favicon** — replace `assets/images/favicon.png`.
 
 ## Theming
